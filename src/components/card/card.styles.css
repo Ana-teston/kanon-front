@@ -1,9 +1,15 @@
 .game-card {
     overflow: hidden;
     background-color: white;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 0 100px orange;
     border-radius: 0.75rem;
     width: 280px;
+    transition: background 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+}
+
+.game-card:hover {
+    background: linear-gradient(45deg, grey 0%, lightgrey 100%);
+    box-shadow: -2px 2px 3px rgba(0, 0, 0, 0.3);
 }
 
 .card-image {

@@ -1,14 +1,16 @@
-// src/store.ts
 import { configureStore } from '@reduxjs/toolkit';
 import gamesReducer from './reducers/gamesReducer';
+import slotMachineReducer from "./reducers/slotMachineReducer";
 
-// Root state type
+
 export type RootState = ReturnType<typeof store.getState>;
 
-// Configure the Redux store
+export type AppDispatch = typeof store.dispatch;
+
 const store = configureStore({
     reducer: {
         games: gamesReducer,
+        slotMachine: slotMachineReducer,
     },
 });
 

@@ -1,16 +1,15 @@
-// src/reducers/gamesReducer.ts
 import { createReducer } from '@reduxjs/toolkit';
 import { setGames, setSearchField, setSearchResults } from '../actions/gamesAction';
 import {Game} from "../../App";
 
 interface GamesState {
-    games: Game[]; // Correctly typed as an array of games
+    games: Game[];
     searchField: string;
     searchResults: Game[];
 }
 
 const initialState: GamesState = {
-    games: [], // your initial state
+    games: [],
     searchField: '',
     searchResults: [],
 };
