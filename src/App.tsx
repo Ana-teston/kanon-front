@@ -7,8 +7,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import {RootState} from "./state/store";
 import {setGames, setSearchField, setSearchResults} from "./state/actions/gamesAction";
 
-
-
 export type Game = {
     "id": string,
     "slug": string,
@@ -21,10 +19,9 @@ export type Game = {
 }
 const App: React.FC = () => {
     const dispatch = useDispatch();
-
     const games = useSelector((state: RootState) => state.games.games);
     const searchField = useSelector((state: RootState) => state.games.searchField);
-
+    const searchResults = useSelector((state: RootState) => state.games.searchResults);
 
     useEffect(() => {
         // Fetch games and update Redux store
@@ -47,21 +44,10 @@ const App: React.FC = () => {
 
     useEffect(() => {
         // Update search results whenever games or searchField changes
-        console.log('Games in Redux state:', games);
-        console.log('Search field:', searchField);
-
-        if (games.length === 0) {
-            // Games not fetched yet, skip filtering
-            return;
+        if (games.length > 0) {
+            const newFilteredGames = games.filter((game) => game.title.toLowerCase().includes(searchField.toLowerCase()));
+            dispatch(setSearchResults(newFilteredGames));
         }
-        const newFilteredGames = games.filter((game) =>
-            game.title.toLowerCase().includes(searchField.toLowerCase())
-        );
-
-        console.log('New filtered games:', newFilteredGames);
-        // Dispatch the setSearchResults action to update the Redux store
-        dispatch(setSearchResults(newFilteredGames));
-
     }, [games, searchField, dispatch]);
 
     const onSearchChange = (event: ChangeEvent<HTMLInputElement>): void => {
@@ -82,9 +68,9 @@ const App: React.FC = () => {
                 />
             </header>
             <main>
-                {games.length > 0 ? (
+                {searchResults.length > 0 ? (
                     <>
-                        <GamesList games={games} />
+                        <GamesList games={searchResults} />
                     </>
                 ) : (
                     <p>Loading...</p>

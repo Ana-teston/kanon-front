@@ -3,21 +3,16 @@ import { Game } from "../../App";
 import Card from "../card/card.component";
 import "./games-list.styles.css";
 
-
-type GamesListProps = {
+interface GamesListProps {
     games: Game[];
-};
+}
 
-const GamesList = ({ games }: GamesListProps) => {
-    console.log('Games:', games);
-
+const GamesList: React.FC<GamesListProps> = ({ games }) => {
     return (
         <div className="container grid-container">
-            {games.map((game, idx) => {
-
-
-                return <Card key={idx} game={game} />;
-            })}
+            {games.map((game) => (
+                <Card key={game.id} game={game} />
+            ))}
         </div>
     );
 };
