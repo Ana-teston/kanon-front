@@ -1,0 +1,29 @@
+.game-card {
+    overflow: hidden;
+    background-color: white;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    border-radius: 0.75rem;
+    width: 280px;
+}
+
+.card-image {
+    width: 100%;
+    object-fit: cover;
+    filter: sepia(25%) contrast(75%);
+}
+
+.card-content {
+    padding: 0.35rem 0.25rem;
+}
+
+.title {
+    font-size: 1.25rem;
+    font-family: sans-serif;
+    font-weight: 300;
+}
+
+.category {
+    font-size: 0.875rem; /* 14px font size */
+    opacity: 0.4;
+}
+
