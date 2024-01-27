@@ -1,35 +1,36 @@
 .game-card {
-    overflow: hidden;
-    background-color: white;
-    box-shadow: 0 0 100px orange;
-    border-radius: 0.75rem;
-    width: 280px;
-    transition: background 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+  overflow: hidden;
+  background-color: white;
+  box-shadow: 0 0 100px orange;
+  border-radius: 0.75rem;
+  width: 280px;
+  transition:
+    background 0.5s ease-in-out,
+    box-shadow 0.5s ease-in-out;
 }
 
 .game-card:hover {
-    background: linear-gradient(45deg, grey 0%, lightgrey 100%);
-    box-shadow: -2px 2px 3px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(45deg, grey 0%, lightgrey 100%);
+  box-shadow: -2px 2px 3px rgba(0, 0, 0, 0.3);
 }
 
 .card-image {
-    width: 100%;
-    object-fit: cover;
-    filter: sepia(25%) contrast(75%);
+  width: 100%;
+  object-fit: cover;
+  filter: sepia(25%) contrast(75%);
 }
 
 .card-content {
-    padding: 0.35rem 0.25rem;
+  padding: 0.35rem 0.25rem;
 }
 
 .title {
-    font-size: 1.25rem;
-    font-family: sans-serif;
-    font-weight: 300;
+  font-size: 1.25rem;
+  font-family: sans-serif;
+  font-weight: 300;
 }
 
 .category {
-    font-size: 0.875rem; /* 14px font size */
-    opacity: 0.4;
+  font-size: 0.875rem; /* 14px font size */
+  opacity: 0.4;
 }
-

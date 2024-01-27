@@ -1,0 +1,49 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 30px;
+}
+
+table {
+  border-collapse: collapse;
+  width: 300px; /* Adjust the width as needed */
+  margin: 20px;
+}
+
+thead th,
+tbody td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+thead th {
+  background-color: #f2f2f2;
+}
+
+tbody td {
+  background-color: white;
+}
+
+table {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Update the shadow as needed */
+  border-radius: 0.75rem;
+  transition:
+    background 0.5s ease-in-out,
+    box-shadow 0.5s ease-in-out;
+}
+
+.combinations {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 20px;
+}
+
+#spin-button {
+  padding: 10px;
+  font-size: 1.5em;
+  cursor: pointer;
+}

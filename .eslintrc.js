@@ -1,3 +1,9 @@
 module.exports = {
-    extends: ['react-app', 'prettier'],
+    parser: '@typescript-eslint/parser',
+    plugins: ['@typescript-eslint'],
+    ignorePatterns: ['build/**/*'],
+    extends: [
+        'prettier',
+        'plugin:@typescript-eslint/recommended',
+    ],
 };

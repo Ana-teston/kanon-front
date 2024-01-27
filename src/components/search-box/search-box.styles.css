@@ -1,17 +1,17 @@
 .search-box {
-    -webkit-appearance: none;
-    border: none;
-    outline: none;
-    padding: 10px;
-    width: 150px;
-    line-height: 30px;
-    margin-bottom: 30px;
-    border-radius: 5px;
-    box-shadow: 3px 3px rgba(28, 2, 24, 0.2);
+  -webkit-appearance: none;
+  border: none;
+  outline: none;
+  padding: 10px;
+  width: 150px;
+  line-height: 30px;
+  margin-bottom: 30px;
+  border-radius: 5px;
+  box-shadow: 3px 3px rgba(28, 2, 24, 0.2);
 }
-@media screen and (min-width: 280px){
-    .search-box {
-        width: 280px;
-        justify-content: center;
-    }
+@media screen and (min-width: 280px) {
+  .search-box {
+    width: 280px;
+    justify-content: center;
+  }
 }

@@ -1,38 +1,57 @@
-import { createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
+import { createAction, createAsyncThunk } from '@reduxjs/toolkit'
+import axios from 'axios'
 
 interface SpinSlotMachineResponse {
-    spinResult: string[];
-    coinsWon: number;
-    updatedCoins: number;
-    currentCoins: number;
+  spinResult: string[]
+  coinsWon: number
+  updatedCoins: number
+  currentCoins: number
+  reelStates: ReelState[]
+}
+
+export interface ReelState {
+  reelIndex: number
+  currentIndex: number
+  symbols: string[]
 }
 
 interface GetUserCoinsResponse {
-    userCoins: number;
+  userCoins: number
 }
 
-export const getUserCoins = createAsyncThunk<GetUserCoinsResponse, void>(
-    'slotMachine/getUserCoins',
-    async () => {
-        try {
-            const response = await axios.get('http://localhost:8000/api/user-coins'); // Update endpoint
-            return response.data;
-        } catch (error) {
-            console.error('Error getting user coins:', error);
-            throw error;
-        }
-    }
-);
+interface StartSpinPayload {
+  spinResult: string[]
+}
+
+export const startSpin = createAction<StartSpinPayload>('slotMachine/startSpin')
+export const stopSpin = createAction('slotMachine/stopSpin')
+export const updateReels = createAction<string[]>('slotMachine/updateReels')
+export const updateReelStates = createAction<ReelState[]>(
+  'slotMachine/updateReelStates',
+)
 export const spinSlotMachine = createAsyncThunk<SpinSlotMachineResponse, void>(
-    'slotMachine/spin',
-    async () => {
-        try {
-            const response = await axios.post('http://localhost:8000/api/slot-machine/spin');
-            return response.data;
-        } catch (error) {
-            console.error('Error spinning slot machine:', error);
-            throw error;
-        }
+  'slotMachine/spin',
+  async () => {
+    try {
+      const response = await axios.post(
+        'http://localhost:8000/api/slot-machine/spin',
+      )
+      return response.data
+    } catch (error) {
+      console.error('Error spinning slot machine:', error)
+      throw error
     }
-);
+  },
+)
+export const getUserCoins = createAsyncThunk<GetUserCoinsResponse, void>(
+  'slotMachine/getUserCoins',
+  async () => {
+    try {
+      const response = await axios.get('http://localhost:8000/api/user-coins') // Update endpoint
+      return response.data
+    } catch (error) {
+      console.error('Error getting user coins:', error)
+      throw error
+    }
+  },
+)
