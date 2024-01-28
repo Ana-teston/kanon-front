@@ -43,7 +43,7 @@ const SlotMachinePage: React.FC = () => {
       <h1>Slot Machine Page</h1>
       <p>
         Initial User Coins:{' '}
-        {currentCoins !== null ? currentCoins : 'Loading...'}
+        {currentCoins !== null ? currentCoins : updatedCoins }
       </p>
       <p>Cost of Spin: 1 Coin</p>
 

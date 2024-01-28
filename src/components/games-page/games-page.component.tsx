@@ -21,6 +21,7 @@ export type Game = {
     url: string
   }
 }
+const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:8000/api'
 const GamesPage: React.FC = () => {
   const dispatch = useDispatch()
   const games = useSelector((state: RootState) => state.games.games)
@@ -34,9 +35,9 @@ const GamesPage: React.FC = () => {
     const fetchGames = async () => {
       try {
         const response = await getData<{ games: Game[] }>(
-          'http://localhost:8000/api/games',
+            `${apiUrl}api/games`,
         )
-
+        console.log('response get', response)
         if (response && Array.isArray(response.games)) {
           dispatch(setGames(response.games))
         } else {
@@ -54,6 +55,8 @@ const GamesPage: React.FC = () => {
   }, [dispatch]) // Dependency array is empty to run once on mount
 
   useEffect(() => {
+    console.log('Games:', games);
+    console.log('Search Results:', searchResults);
     // Update search results whenever games or searchField changes
     if (games.length > 0) {
       const newFilteredGames = games.filter((game) =>
@@ -85,7 +88,7 @@ const GamesPage: React.FC = () => {
             <GamesList games={searchResults} />
           </>
         ) : (
-          <p>Loading...</p>
+          <p>Game not found!</p>
         )}
       </main>
     </div>

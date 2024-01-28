@@ -9,7 +9,7 @@ interface GamesListProps {
 
 const GamesList: React.FC<GamesListProps> = ({ games }) => {
   return (
-    <div className="container grid-container">
+    <div className="grid-container">
       {games.map((game) => (
         <Card key={game.id} game={game} />
       ))}

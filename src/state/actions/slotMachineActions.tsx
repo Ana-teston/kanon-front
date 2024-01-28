@@ -1,6 +1,7 @@
 import { createAction, createAsyncThunk } from '@reduxjs/toolkit'
 import axios from 'axios'
 
+const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:8000/api'
 interface SpinSlotMachineResponse {
   spinResult: string[]
   coinsWon: number
@@ -34,7 +35,7 @@ export const spinSlotMachine = createAsyncThunk<SpinSlotMachineResponse, void>(
   async () => {
     try {
       const response = await axios.post(
-        'http://localhost:8000/api/slot-machine/spin',
+          `${apiUrl}api/slot-machine/spin`,
       )
       return response.data
     } catch (error) {
@@ -47,7 +48,7 @@ export const getUserCoins = createAsyncThunk<GetUserCoinsResponse, void>(
   'slotMachine/getUserCoins',
   async () => {
     try {
-      const response = await axios.get('http://localhost:8000/api/user-coins') // Update endpoint
+      const response = await axios.get(`${apiUrl}api/user-coins`) // Update endpoint
       return response.data
     } catch (error) {
       console.error('Error getting user coins:', error)
