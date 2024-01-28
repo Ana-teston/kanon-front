@@ -20,79 +20,91 @@ const SlotMachinePage: React.FC = () => {
   useEffect(() => {
     dispatch(getUserCoins())
   }, [dispatch])
+
   const handleSpinClick = () => {
     dispatch(spinSlotMachine())
   }
 
   return (
     <div>
+      <h1>Slot Machine Page</h1>
+      <p>
+        Initial User Coins:{' '}
+        {currentCoins !== null ? currentCoins : updatedCoins } 💰
+      </p>
+      <p>Cost of Spin: 1 Coin 💰</p>
       <div className="slots">
         {spinResult ? (
           spinResult.map((symbol, index) => (
-            <span className="reel" id={`reel${index + 1}`} key={index}>
+            <span className={`reel ${coinsWon !== null && coinsWon > 0 ? 'winning' : ''}`}
+                  id={`reel${index + 1}`}
+                  key={index}>
               {symbol}
             </span>
           ))
         ) : (
-          <div className="reel" id="reel1">
-            🍒 🍎 🍌
-          </div>
+              <div className="reel">
+                <span className="symbol2">🍒</span>
+                <span className="symbol2">🍎</span>
+                <span className="symbol2">🍌</span>
+              </div>
         )}
       </div>
 
-      <h1>Slot Machine Page</h1>
-      <p>
-        Initial User Coins:{' '}
-        {currentCoins !== null ? currentCoins : updatedCoins }
-      </p>
-      <p>Cost of Spin: 1 Coin</p>
-
-      <button onClick={handleSpinClick} disabled={loading}>
-        {loading ? 'Spinning...' : 'Spin the Slot Machine'}
+      <button
+          style={{ animation: loading ? 'pulse 0.5s infinite' : '' }}
+          className="spin-button"
+          onClick={handleSpinClick}
+          disabled={loading}
+      >
+        {loading ? 'Spinning...' : 'PLAY'}
       </button>
-      {spinResult && <p>Result: {spinResult.join(', ')}</p>}
-      {coinsWon !== null && <p>Coins Won: {coinsWon}</p>}
-      {updatedCoins !== null && <p>You have: {updatedCoins}, Try again!</p>}
+      <div className="results">
+        {spinResult && <p>Result: {spinResult.join(', ')}</p>}
+        {coinsWon !== null && <p>Coins Won: {coinsWon} 💰</p>}
+        {updatedCoins !== null && <p>You have: {updatedCoins}, <strong>Try again!</strong></p>}
+      </div>
+
       <div className="container">
         <table>
           <thead>
             <tr>
               <th>Win Condition</th>
-              <th>Points</th>
+              <th>Coins</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td>🍒,🍒,🍒</td>
-              <td>50</td>
+              <td>50 💰</td>
             </tr>
             <tr>
               <td>🍒,🍒</td>
-              <td>40</td>
+              <td>40 💰</td>
             </tr>
             <tr>
               <td>🍎,🍎,🍎</td>
-              <td>20</td>
+              <td>20 💰</td>
             </tr>
             <tr>
               <td>🍎,🍎</td>
-              <td>10</td>
+              <td>10 💰</td>
             </tr>
             <tr>
               <td>🍌,🍌,🍌</td>
-              <td>15</td>
+              <td>15 💰</td>
             </tr>
             <tr>
               <td>🍌,🍌</td>
-              <td>5</td>
+              <td>05 💰</td>
             </tr>
             <tr>
               <td>🍋,🍋,🍋</td>
-              <td>3</td>
+              <td>03 💰</td>
             </tr>
             <tr>
               <td>🍋,🍋</td>
-              <td>2</td>
+              <td>02 💰</td>
             </tr>
           </tbody>
         </table>

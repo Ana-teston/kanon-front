@@ -2,36 +2,60 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 30px;
+  margin-bottom: 3rem;
+  margin-top: 3rem;
 }
 
 table {
   border-collapse: collapse;
-  width: 300px; /* Adjust the width as needed */
+  width: 400px;
   margin: 20px;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  transition:
+          background 0.5s ease-in-out,
+          box-shadow 0.5s ease-in-out;
+}
+
+
+.slots {
+  display: flex;
+  gap: 2rem ; /* Adjust the gap as needed */
+  justify-content: center;
+  align-items: center;
+  margin-top: 6rem;
+  margin-bottom: 4rem;
+}
+
+.reel {
+  font-size: 6rem;
+  transition: box-shadow 0.5s ease-in-out;
+  gap: 2rem;
+}
+
+.symbol2 {
+  justify-content: center;
+  align-items: center;
+  font-size: 6rem;
+  box-shadow: 0 0 20px rgb(125, 99, 189);
+  transition: box-shadow 0.5s ease-in-out;
+  gap: 2rem;
 }
 
 thead th,
 tbody td {
-  border: 1px solid #ddd;
+  border: 0.3px solid rgb(73, 46, 135);
   padding: 8px;
   text-align: center;
 }
 
 thead th {
-  background-color: #f2f2f2;
+  background-color: rgba(242, 242, 242, 0.1);
 }
 
 tbody td {
-  background-color: white;
-}
-
-table {
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Update the shadow as needed */
-  border-radius: 0.75rem;
-  transition:
-    background 0.5s ease-in-out,
-    box-shadow 0.5s ease-in-out;
+  background-color: rgba(255, 255, 255, 0.16);
 }
 
 .combinations {
@@ -42,8 +66,46 @@ table {
   margin: 20px;
 }
 
-#spin-button {
+.spin-button {
   padding: 10px;
   font-size: 1.5em;
   cursor: pointer;
+  border-radius: 0.75rem;
+  background-color: #F2F597;
+  color: #492E87;
+  text-shadow: 0.5px 0.5px 0.5px #0A1D56;
+  box-shadow: 0 0 40px #F2F597;
+}
+
+.spin-button:hover {
+  background-color: rgba(73, 46, 135, 0.7);
+  color: #F2F597;
+  text-shadow: 0.5px 0.5px 0.5px #0A1D56;
+  box-shadow: 0 0 40px #492E87;
+}
+
+.results {
+  margin-top: 3rem;
+}
+
+/* Keyframes and pulse-animation styles */
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 30px #F2F597;
+  }
+  50% {
+    box-shadow: 0 0 40px #F2F597;
+  }
+  100% {
+    box-shadow: 0 0 30px #F2F597;
+  }
+}
+
+.pulse-animation {
+  animation: pulse 1s infinite;
+}
+
+.winning {
+  animation: pulse 0.5s infinite;
+  box-shadow: 0 0 40px rgba(0, 255, 0, 0.8);
 }

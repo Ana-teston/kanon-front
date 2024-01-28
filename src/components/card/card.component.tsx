@@ -20,17 +20,18 @@ const Card: React.FC<CardProps> = ({ game }) => {
       window.open(startUrl, '_blank')
     } else {
       // If startUrl doesn't exist, show an alert
-      alert('This game is not available in your country.')
+      alert('This game is not available in your Country.')
     }
   }
 
   const cardStyle = {
-    boxShadow: startUrl ? '0 0 10px orange' : '0 0 10px blue',
+    boxShadow: startUrl ? '0 0 40px #F2F597' : '0 0 40px blue',
     cursor: startUrl ? 'pointer' : 'not-allowed',
-  }
+    animation: startUrl ? 'pulse 1s infinite' : 'none',
+  };
 
   return (
-    <div className="game-card" onClick={handleClick} style={cardStyle}>
+      <div className={`game-card ${startUrl ? 'pulse-animation' : ''}`} onClick={handleClick} style={cardStyle}>
       <div className="card-image" key={id}>
         {imageUrl ? (
           <img src={imageUrl} alt={title} />

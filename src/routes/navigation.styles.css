@@ -1,8 +1,9 @@
-.navigatiorContainer {
+.navigationContainer {
   height: 70px;
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: end;
+  padding: 8px 15px;
   margin-bottom: 25px;
 
   @media screen and (max-width: 800px) {
@@ -12,10 +13,11 @@
   }
 }
 .navLink {
-  padding: 10px 15px;
+  padding-right: 45px;
   cursor: pointer;
   @media screen and (max-width: 400px) {
-    font-size: 10px;
+    font-size: 20px;
+    color: #F2F597;
   }
 }
 
@@ -30,4 +32,15 @@
     width: 50%;
     height: 100%;
   }
+}
+
+a {
+  text-decoration: none;
+  color: #F2F597;
+  text-shadow: #492E87;
+}
+
+a:hover {
+  color: rgba(242, 245, 151, 0.7);
+  text-shadow: #492E87;
 }

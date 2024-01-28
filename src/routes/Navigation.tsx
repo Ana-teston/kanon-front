@@ -3,7 +3,7 @@ import './navigation.styles.css'
 
 const Navigation = () => {
   return (
-    <div className="navigatiorContainer">
+    <div className="navigationContainer">
       <div className="navLinks">
         <NavLink className="navLink" to="/">
           Games

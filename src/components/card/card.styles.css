@@ -1,16 +1,18 @@
+/* Add these styles in your CSS file */
+
 .game-card {
   overflow: hidden;
-  background-color: white;
-  box-shadow: 0 0 100px orange;
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 0 30px #F2F597;
   border-radius: 0.75rem;
   width: 280px;
   transition:
-    background 0.5s ease-in-out,
-    box-shadow 0.5s ease-in-out;
+          background 0.2s ease-in-out,
+          box-shadow 0.2s ease-in-out;
 }
 
 .game-card:hover {
-  background: linear-gradient(45deg, grey 0%, lightgrey 100%);
+  background: linear-gradient(65deg, #37b5b6, lightgrey 100%);
   box-shadow: -2px 2px 3px rgba(0, 0, 0, 0.3);
 }
 
@@ -22,15 +24,44 @@
 
 .card-content {
   padding: 0.35rem 0.25rem;
+  background-color: rgba(255, 255, 255, 1.5%);
+  border-radius: 8px;
 }
 
 .title {
+  width: 100%;
   font-size: 1.25rem;
   font-family: sans-serif;
   font-weight: 300;
+  color: #0A1D56;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  text-shadow: 0.5px 0.5px 0.5px #F2F597;
+  font-weight: bold;
+  padding: 0.35rem 0.25rem;
 }
 
 .category {
-  font-size: 0.875rem; /* 14px font size */
-  opacity: 0.4;
+  font-size: 0.875rem;
+  color: #492E87;
+  opacity: 0.8;
+  text-shadow: 1px 1px 1px #F2F597;
+  font-weight: normal;
+}
+
+/* Keyframes and pulse-animation styles */
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 30px #F2F597;
+  }
+  50% {
+    box-shadow: 0 0 40px #F2F597;
+  }
+  100% {
+    box-shadow: 0 0 30px #F2F597;
+  }
+}
+
+.pulse-animation {
+  animation: pulse 1s infinite;
 }
